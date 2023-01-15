@@ -1,0 +1,27 @@
+<div class="section-wide">
+  <h2>Eliga una universidad</h2>
+  <div class="grid-2cols">
+    <mat-card
+        *ngFor="let u of universidades"
+        style="background-image:
+            linear-gradient(
+            rgba(255, 255, 255, 0.9),
+            rgba(255, 255, 255, 0.9)),
+            url({{u.isotipo}})">
+      <mat-card-content>
+        <mat-card-title>{{u.nombre}}</mat-card-title>
+        <mat-card-subtitle>[{{u.diminutivo}}]</mat-card-subtitle>
+        <p>
+          Utilice el sistema AION para el ultimo horario registrado
+          de {{u.nombre}}
+        </p>
+        <button
+            mat-raised-button
+            color="accent"
+            [routerLink]="['/previU', u.diminutivo]">
+          Seleccionar
+        </button>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

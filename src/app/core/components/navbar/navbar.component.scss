@@ -1,0 +1,59 @@
+@import '../../../../styles.scss';
+
+.logo-container{
+  height: 60px;
+  padding: 1px;
+  margin-right: 16px;
+}
+
+.logo-obj{
+  height: -webkit-fill-available;
+}
+
+.logo-title{
+  @extend .logo-obj;
+  height: unquote('-webkit-calc(100% - 23px)');
+}
+
+.center-row{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-item-container{
+  width: fit-content;
+}
+
+.navbar-list-container{
+  width: 60%;
+  margin: 0 5%;
+}
+
+.navbar-list-container ul{
+  width: 100%;
+}
+
+.navbar-list-container li{
+  float: left;
+  padding: 5px 15px;
+  font-size: initial;
+  margin: 0 1%;
+}
+
+.navbar-list-container a{
+  font-weight: 700;
+  text-decoration-line: none;
+  @extend .accent;
+}
+
+.view-container{
+  width: 90%;
+  margin: 0 5%;
+}
+
+.without-indent{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}

@@ -1,0 +1,24 @@
+div.section-wide {
+  padding: 20px 2px 30px;
+}
+
+div.grid-2cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 15px;
+}
+
+mat-card {
+  background-size: unquote('-webkit-calc(100% - 16px)');
+  background-position-y: center;
+  background-position-x: center;
+  background-repeat: no-repeat;
+}
+
+h2 {
+  font-weight: 500;
+  margin: 0;
+  padding: 10px;
+  font-size: 19pt;
+  text-align: center;
+}

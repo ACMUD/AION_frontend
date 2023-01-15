@@ -1,0 +1,43 @@
+@import '../../../../styles.scss';
+
+.text-white {
+  color: white;
+}
+
+.ajust-box{
+  width: 100%;
+  margin: 0;
+}
+
+.inner-box {
+  padding: 15px;
+}
+
+mat-card{
+  padding: 0;
+  padding-bottom: 15px;
+  img {
+    width: 80%;
+    margin: 0 10% 5px;
+  }
+}
+
+mat-card-header {
+  @extend .inner-box;
+  padding-bottom: 0;
+  background-color: mat-color($AION-accent);
+}
+
+mat-card-content {
+  margin-bottom: 0;
+}
+
+.partner-header-image {
+  background-image: url(/assets/img/icons/common/IconAnimFndTrnsp_1080x1080.webp);
+  background-size: cover;
+}
+
+a.mat-raised-button {
+  background-color: mat-color($AION-accent);
+  @extend .text-white;
+}

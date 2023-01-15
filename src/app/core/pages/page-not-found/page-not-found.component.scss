@@ -1,0 +1,63 @@
+@import '../../../../styles.scss';
+
+.dot-box{
+  background-image: radial-gradient(rgb(0,0,0,0.4), transparent, transparent);
+}
+
+.page-container{
+  padding-bottom: 5px;
+  div{
+    text-align: center;
+  }
+}
+
+.page-message{
+  color: mat-color($AION-accent);
+  text-shadow: 2px 0 mat-color($AION-primary),
+      -2px 0 mat-color($AION-primary),
+      0 2px mat-color($AION-primary),
+      0 -2px mat-color($AION-primary),
+      1px 1px mat-color($AION-primary),
+      -1px -1px mat-color($AION-primary),
+      1px -1px mat-color($AION-primary),
+      -1px 1px mat-color($AION-primary);
+  h1{
+    font-family: sans-serif;
+    font-size: 56pt;
+    font-stretch: ultra-expanded;
+    font-weight: 700;
+    padding-top: 30px;
+  }
+  h2{
+    font-family: system-ui;
+    font-size: 33pt;
+    font-weight: 300;
+    margin: 0;
+    padding: 10px;
+  }
+}
+
+img{
+  width: 50%;
+  opacity: 0.85;
+}
+
+.page-details{
+  width: 50%;
+  margin: 0 25%;
+  p{
+    font-size: 14pt;
+  }
+  a{
+    text-decoration: none;
+    color: mat-color($AION-accent);
+    margin: 3px;
+    border-width: 1px;
+    border-color: mat-color($AION-accent);
+    //border-style: solid;
+    border-radius: 3px;
+    font-family: sans-serif;
+    font-weight: 500;
+    padding: 2px 9px;
+  }
+}

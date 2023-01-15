@@ -1,0 +1,19 @@
+mat-card{
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+
+mat-card-content{
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-gap: 15px;
+}
+
+mat-card-actions{
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+button.smaller{
+  margin: 5% 5% 0%;
+}

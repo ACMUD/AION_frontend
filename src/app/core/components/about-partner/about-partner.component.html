@@ -1,0 +1,18 @@
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar class="partner-header-image"></div>
+    <mat-card-title>{{colaborador.nombre}}</mat-card-title>
+    <mat-card-subtitle class="text-white">{{colaborador.rol}}</mat-card-subtitle>
+  </mat-card-header>
+  <img
+      mat-card-image
+      src="/assets/img/about/Acerca{{colaborador.diminutivo}}FndTrnspConLtrs.svg" alt="Photo of a Shiba Inu">
+  <mat-card-content class="inner-box">
+    <p>{{colaborador.descripcion}}</p>
+  </mat-card-content>
+  <mat-card-actions
+      *ngIf="colaborador.enlace"
+      class="inner-box ajust-box">
+    <a mat-raised-button href="{{colaborador.enlace}}" target="_blank">Visitar</a>
+  </mat-card-actions>
+</mat-card>

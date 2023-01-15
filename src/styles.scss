@@ -1,0 +1,33 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+$AION-primary: mat-palette($mat-grey, 900);
+$AION-accent:  mat-palette($mat-blue-grey, 500);
+
+$AION-theme: mat-light-theme($AION-primary, $AION-accent);
+
+button.flotante {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+}
+
+body {
+  margin: 0;
+}
+
+.row{
+  display: flex;
+}
+
+.view-container{
+  width: 90%;
+  margin: 0 5%;
+}
+
+.accent{
+  color: mat-color($AION-accent);
+}
+
+@include angular-material-theme($AION-theme);

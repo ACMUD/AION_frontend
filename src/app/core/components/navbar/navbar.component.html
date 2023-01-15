@@ -1,0 +1,55 @@
+<mat-toolbar color="primary" class="mat-elevation-z10 content">
+  <mat-toolbar-row class="row view-container">
+    <div>
+      <!--div>
+          !Buton de comportamiento responsivo
+      </div-->
+      <div class="center-row"><!--Navbar-content-->
+        <div class="logo-container navbar-item-container"><!--logo-->
+          <a rel="index" href="/"><!--icono-->
+            <img
+                *ngIf=" ! appHandlerService.loading_bool "
+                class="logo-obj"
+                src="assets/img/icons/common/IconFndTrnspConLtrs.svg"
+                alt="Logo de AION"/><!--icono-img-->
+            <img
+                *ngIf=" appHandlerService.loading_bool "
+                class="logo-obj"
+                src="assets/img/icons/common/IconAnimFndTrnsp_1080x1080.webp"
+                alt="Logo de AION"/><!--icono-img-->
+            <img
+                class="logo-title"
+                src="assets/img/icons/common/TitlFndTrnspCurvas.svg"
+                alt="Titulo de AION"/><!--titulo-img-->
+          </a>
+        </div>
+        <div class="navbar-item-container navbar-list-container center-row"><!--Navbar-list-->
+          <ul class="without-indent">
+            <li>
+              <a href="/">Inicio</a>
+            </li>
+            <li>
+              <a href="/guIdes">Tutoriales</a>
+            </li>
+            <li>
+              <a href="/suppOrt">Contribuir</a>
+            </li>
+            <li>
+              <a href="/Narrative">Lore</a>
+            </li>
+            <li>
+              <a href="/About">Acerca de</a>
+            </li>
+          </ul>
+        </div>
+        <div class="navbar-item-container">
+          <button
+              mat-icon-button
+              color="accent">
+            <i class="material-icons">person_outline</i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>

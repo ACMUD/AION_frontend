@@ -1,0 +1,17 @@
+@import '../../../../styles.scss';
+
+.bottom{
+  background: mat-color($AION-primary);
+  font: 100 17px sans-serif, Roboto, consolas;
+  color: white;
+  a{
+    text-decoration-line: none;
+    color: mat-color($AION-accent);
+    font-weight: 300;
+  }
+}
+
+.copyright{
+  text-align: -webkit-center;
+  padding: 3px 0 5px;
+}

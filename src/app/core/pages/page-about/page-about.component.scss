@@ -1,0 +1,24 @@
+div.grid-2cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 15px;
+}
+
+div.strech-box {
+  width: 80%;
+  margin: 0 10%;
+}
+
+h2 {
+  font-weight: 500;
+  margin: 0;
+  padding: 10px;
+  font-size: 19pt;
+  text-align: center;
+}
+
+.dot-box {
+  width: fit-content;
+  margin: auto;
+  background-image: radial-gradient(rgb(0,0,0,0.3),transparent,transparent);
+}
