@@ -45,8 +45,10 @@
         <div class="navbar-item-container">
           <button
               mat-icon-button
-              color="accent">
-            <i class="material-icons">person_outline</i>
+              [ngClass]="{'button-outline': !estaEnSesion(), 'button-online': estaEnSesion()}"
+              (click)="abrirPanelAutentificacion()">
+            <i *ngIf="estaEnSesion()" class="material-icons">person</i>
+            <i *ngIf="!estaEnSesion()" class="material-icons">person_outline</i>
           </button>
         </div>
       </div>

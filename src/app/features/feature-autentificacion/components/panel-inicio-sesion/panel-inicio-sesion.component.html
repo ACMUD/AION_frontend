@@ -1,0 +1,45 @@
+<div>
+  <mat-card>
+    <mat-card-title>
+      Inicio de Sesion
+    </mat-card-title>
+    <mat-card-subtitle>
+      registrese previamente
+    </mat-card-subtitle>
+    <div class="fields-container">
+      <mat-form-field>
+        <mat-label>Nombre de usuario o correo</mat-label>
+        <input
+            matInput
+            [(ngModel)]="usuario"
+            placeholder="Ej: Usuario19 o usuario19@al.org"
+            required/>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Clave</mat-label>
+        <input
+            matInput
+            [(ngModel)]="clave"
+            [type]="!claveVisible ? 'password' : 'text'"
+            placeholder="Ej: Ўбнусї"
+            required/>
+        <button
+            mat-icon-button
+            matSuffix
+            (click)="claveVisible = !claveVisible">
+          <mat-icon>
+            {{!claveVisible ? 'visibility_off' : 'visibility'}}
+          </mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+    <mat-card-actions align="end">
+      <button
+          mat-flat-button
+          (click)="verificar()"
+          color="accent">
+        Iniciar Sesion
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

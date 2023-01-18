@@ -1,0 +1,18 @@
+<div *ngIf="mensaje" class="advertencia">
+  <span>
+    <strong>{{mensaje}}</strong>
+  </span>
+</div>
+
+<mat-tab-group>
+  <mat-tab
+      label="Iniciar Sesion">
+    <aion-panel-inicio-sesion
+        (datosValidados)="iniciarSesion($event)">
+    </aion-panel-inicio-sesion>
+  </mat-tab>
+  <mat-tab
+      label="Registrarse">
+    (aun no)
+  </mat-tab>
+</mat-tab-group>

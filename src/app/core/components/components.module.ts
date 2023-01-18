@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatExpansionModule } from '@angular/material/expansion';
@@ -30,6 +31,8 @@ import { AboutHeaderComponent } from './about-header/about-header.component';
   ],
   imports: [
     CommonModule,
+
+    MatBottomSheetModule,
     MatButtonModule,
     MatToolbarModule,
     MatCardModule,

@@ -37,6 +37,9 @@ import { ServicesModule } from './shared/services/services.module';
 import { ComponentsFeatureUniversidadesModule } from './features/feature-universidades/components/components.module';
 import { PagesFeatureUniversidadesModule } from './features/feature-universidades/pages/pages.module';
 
+import { ComponentsFeatureAutentificacionModule } from './features/feature-autentificacion/components/components.module';
+import { ServicesFeatureAutentificacionModule } from './features/feature-autentificacion/services/services.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -74,6 +77,9 @@ import { PagesFeatureUniversidadesModule } from './features/feature-universidade
     PagesModule,
     ServicesModule,
 
+    ComponentsFeatureAutentificacionModule,
+    ServicesFeatureAutentificacionModule,
+
     ComponentsFeatureUniversidadesModule,
     PagesFeatureUniversidadesModule,
 
@@ -81,6 +87,7 @@ import { PagesFeatureUniversidadesModule } from './features/feature-universidade
   ],
   providers: [
     ServicesModule,
+    ServicesFeatureAutentificacionModule,
   ],
   bootstrap: [AppComponent]
 })

@@ -57,3 +57,13 @@
   padding: 0;
   margin: 0;
 }
+
+.button-online {
+  background: mat-color($AION-accent);
+  color: white;
+}
+
+.button-outline {
+  background: transparent;
+  color: mat-color($AION-accent);
+}

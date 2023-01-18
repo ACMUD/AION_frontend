@@ -11,4 +11,4 @@ import { AIONDistritalService } from './filtros-distrital.service';
   imports: [],
   exports: []
 })
-export class ServicesModule { }
+export class ServicesFeatureUniversidadesModule { }
