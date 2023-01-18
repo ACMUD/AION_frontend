@@ -1,0 +1,75 @@
+<div>
+    <div role="grid" class="cal-week-view">
+        <div>
+            <div role="row" class="cal-day-headers">
+                <div *ngFor="let dia of diasSemana" tabindex="0"
+                        role="columnheader"
+                        class="cal-header cal-past cal-weekend">
+                    <b>{{dia}}</b>
+                </div>
+            </div>
+        </div>
+        <div class="cal-time-events">
+            <div class="cal-time-label-column">
+                <div *ngFor="let hora of horasDia; let i = index"
+                        class="cal-hour"
+                        [ngClass]="{'cal-hour-odd': i % 2 == 1}">
+                    <div ng-reflect-is-time-label="true"
+                            style="height: {{altura}}px;">
+                        <div class="cal-hour-segment cal-hour-start"
+                                aria-hidden="true"
+                                style="height: {{altura}}px;">
+                            <div class="cal-time"> {{hora}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cal-day-columns">
+                <div *ngFor="let dia of diasSemana" class="cal-day-column">
+
+                    <div *ngFor="let hora of horasDia; let i = index"
+                            class="cal-hour"
+                            [ngClass]="{'cal-hour-odd': i % 2 == 1}">
+                        <div style="height: {{altura}}px;">
+                            <div class="cal-hour-segment cal-hour-start"
+                                    aria-hidden="true"
+                                    style="height: {{altura}}px;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div *ngFor="let evento of eventosDia[dia]"
+                            class="cal-event-container cal-starts-within-day
+                                    cal-ends-within-day"
+                            style="top: {{altura * evento.hora}}px;
+                                    height: {{altura}}px; left: 0%;
+                                    width: 100%;">
+                        <div style="height: calc(100% - 1px);">
+                            <div role="application" class="cal-event"
+                                    matTooltip="{{evento.id.primario}} - {{evento.id.secundario}} - {{evento.datos}}"
+                                    style="background-color: {{evento.color.primario}};
+                                            border-color: {{evento.color.secundario}};">
+                                <div style="display: contents;
+                                        color: {{evento.color.secundario}}">
+                                    <p style="font-size: smaller; margin: 0px;
+                                            line-height: normal;">
+                                            {{evento.id.secundario}}
+                                    </p>
+                                    <span class="cal-event-title"
+                                            aria-hidden="true">
+                                        {{evento.id.primario}}
+                                    </span>
+                                    <br/>
+                                    <span class="cal-event-description"
+                                            aria-hidden="true">
+                                        {{evento.datos}}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

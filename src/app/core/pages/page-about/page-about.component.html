@@ -1,18 +1,44 @@
 <div>
-  <div>
-    <h1>SISTEMA AION</h1>
+  <div class="long-band logo-container">
+    <img
+        alt="Animacion logo AION"
+        src="/assets/img/icons/common/IconAnimFndTrnsp_1080x1080.webp"/>
   </div>
+
+  <aion-about-header
+      [trazabilidad]="trazabilidad"
+      [descriptores]="descriptores">
+  </aion-about-header>
+
   <div>
-  </div>
-  <div>
+
     <h2 class="dot-box">Colaboradores</h2>
+
     <div class="grid-2cols strech-box">
       <aion-about-partner
           *ngFor="let col of colaboradores"
           [colaborador] = "col">
       </aion-about-partner>
     </div>
+
   </div>
-  <div>
+
+  <div class="long-band">
+
+    <div class="text-slide">
+      <h2 class="dot-box">Proyectos</h2>
+      <p>
+        El sistema AION se toma un espacio para reconocer proyectos de interes
+        que sirvieron de inspiracion, que presentan alternativas disponibles o
+        que son utilizados directamente por AION.
+      </p>
+    </div>
+
+    <div>
+        <aion-about-projects [proyectos]="proyectos">
+        </aion-about-projects>
+    </div>
+
   </div>
+
 </div>

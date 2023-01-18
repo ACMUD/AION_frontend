@@ -1,0 +1,61 @@
+<mat-card>
+  <mat-card-title>
+    Zona de seleccion
+  </mat-card-title>
+  <mat-card-subtitle>
+    Agrega materias a tu horario, modificalas o eliminalas
+  </mat-card-subtitle>
+  <mat-accordion>
+    <mat-expansion-panel
+        *ngFor="let materia of materias | keyvalue; let i = index"
+        [expanded]="indice === i"
+        (opened)="setIndice(i)"
+        hideToggle
+        style="background-color:{{materia.value.color.primario}}">
+      <mat-expansion-panel-header
+          matTooltip="{{materia.value.nombre}}">
+        <mat-panel-title>{{materia.key}} -
+          {{materia.value.nombre}}
+        </mat-panel-title>
+        <mat-panel-description>
+          <label for="muestrario{{i}}">
+            <mat-icon style="color:{{materia.value.color.secundario}}">
+              color_lens
+            </mat-icon>
+          </label>
+          <input
+              type="color"
+              [(ngModel)]="materia.value.color.secundario"
+              (change)="materia.value.color.primario = materia.value.color.secundario + '4f'"
+              value="{{materia.value.color.secundario}}"
+              id="muestrario{{i}}"/>
+          <button
+              mat-icon-button
+              color="warn"
+              (click)="eliminarMateria.emit(materia.key)">
+            <i class="material-icons">delete_outline</i>
+          </button>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div style="display: grid;">
+        <div
+            *ngFor="let grupo of materia.value.grupos | keyvalue"
+            class="chequeo-grupo">
+          <mat-checkbox
+              matTooltip="{{grupo.value.facultad}} - {{grupo.value.proyecto_curricular}}"
+              color="accent"
+              [checked]="estaSelecto({'materia': materia.key, 'grupo': grupo.key})"
+              (change)="seleccionarGrupo.emit({'materia': materia.key, 'grupo': grupo.key})">
+            Grupo {{grupo.key}}
+          </mat-checkbox>
+          <button
+              mat-icon-button
+              color="warn"
+              (click)="eliminarGrupo.emit({'materia': materia.key, 'grupo': grupo.key})">
+            <i class="material-icons">close</i>
+          </button>
+        </div>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</mat-card>

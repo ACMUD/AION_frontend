@@ -13,6 +13,10 @@
   padding: 15px;
 }
 
+.reduce-text {
+  font-size: 12px;
+}
+
 mat-card{
   padding: 0;
   padding-bottom: 15px;
@@ -33,11 +37,22 @@ mat-card-content {
 }
 
 .partner-header-image {
-  background-image: url(/assets/img/icons/common/IconAnimFndTrnsp_1080x1080.webp);
+  background-image:
+    url(/assets/img/icons/common/IconAnimFndTrnsp_1080x1080.webp),
+    radial-gradient(
+      rgb(0,0,0,0.7),
+      rgb(255,255,255,0.1),
+      transparent);
   background-size: cover;
 }
 
 a.mat-raised-button {
   background-color: mat-color($AION-accent);
   @extend .text-white;
+}
+
+mat-card-header{
+.mat-card-title.reduce-text {
+  font-size: 12px;
+}
 }

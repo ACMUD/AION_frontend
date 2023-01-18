@@ -1,0 +1,14 @@
+<div class="vanished-flag">
+  <div class="header-descriptor">
+    <h2>{{trazabilidad.nombre}}</h2>
+    <p>{{trazabilidad.descripcion}}</p>
+  </div>
+
+  <mat-stepper id="a" class="own">
+    <mat-step
+        *ngFor="let descriptor of descriptores"
+        label="{{descriptor.nombre}}">
+      <p>{{descriptor.descripcion}}</p>
+    </mat-step>
+  </mat-stepper>
+</div>

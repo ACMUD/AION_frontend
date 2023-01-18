@@ -1,0 +1,29 @@
+.header {
+  h3 {
+    letter-spacing: 1pt;
+  }
+}
+
+h2 {
+  font-weight: 500;
+  margin: 0;
+  padding: 10px;
+  font-size: 19pt;
+  text-align: center;
+}
+
+.control-panel {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 15px;
+}
+
+.button-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.schedule-view {
+  margin: 10px auto;
+}

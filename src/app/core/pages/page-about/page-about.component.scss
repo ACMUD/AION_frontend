@@ -1,3 +1,6 @@
+@import "../../../app.component.scss";
+@import '../../../../styles.scss';
+
 div.grid-2cols {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -21,4 +24,45 @@ h2 {
   width: fit-content;
   margin: auto;
   background-image: radial-gradient(rgb(0,0,0,0.3),transparent,transparent);
+}
+
+.long-band {
+  width: 115.5%;
+  margin: 10px -10%;
+  padding: 75px 10%;
+  background: rgb(0,0,0,0.85);
+  color: white;
+  display: flex;
+  align-items: center;
+  div {
+    width: 50%;
+  }
+}
+
+.text-slide {
+  text-align: center;
+  h2 {
+    letter-spacing: 7pt;
+  }
+  p {
+    text-align: justify;
+    padding: 10px 35px;
+    white-space: pre-wrap;
+    letter-spacing: 1pt;
+    word-spacing: 2pt;
+    font-weight: 300;
+  }
+}
+
+.logo-container {
+  margin: auto -10%;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(mat-color($AION-primary), rgb(38, 38, 110));
+  opacity: 1;
+  img {
+    width: 25%;
+    margin-bottom: -70px;
+  }
 }

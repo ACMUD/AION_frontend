@@ -44,7 +44,6 @@ Thumbs.db
 
 #features and trash
 src/app/administracion/
-src/app/features/
 src/app/universidad/
 src/app/env.ts
 src/app/temp.txt

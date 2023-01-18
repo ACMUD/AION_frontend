@@ -1,0 +1,64 @@
+<div class="kairos-distrital">
+  <aion-filtros-distrital
+      (emitirMaterias)="recibirMaterias($event)"
+      [ngClass]="{'panel-menor': hayMaterias(), 'panel-mayor': !hayMaterias()}">
+  </aion-filtros-distrital>
+
+  <aion-selector-distrital
+      *ngIf="hayMaterias()"
+      [materias]="materias"
+      [espaciosSelectos]="espaciosSelectos"
+      (eliminarGrupo)="eliminarGrupo($event)"
+      (eliminarMateria)="eliminarMateria($event)"
+      (seleccionarGrupo)="seleccionarGrupo($event)"
+      class="panel-menor">
+  </aion-selector-distrital>
+
+  <div *ngIf="cruces.cantidad > 0" class="advertencia">
+    <span>
+      Presenta <strong> {{cruces.cantidad}} </strong> cruces, revise:
+    </span>
+    <span> <strong> {{obtenerUbicaciones()}} </strong> </span>
+  </div>
+
+  <aion-schedule
+      *ngIf="haySelectos()"
+      [eventosDia]="eventosDia"
+      class="panel-mayor">
+  </aion-schedule>
+</div>
+
+<button
+    mat-raised-button
+    matTooltip="Utiliza la inteligencia artificial de AION para que organice las materias filtradas"
+    color="accent"
+    class="flotante-alterno"
+    *ngIf="estaAIONHabilitado()"
+    (click)="usarAION()">
+    <img src="/assets/img/icons/common/IconBlnqFndTrnspConLtrs.svg">
+    Usar AION
+</button>
+
+<button
+    mat-fab
+    color="primary"
+    class="flotante"
+    routerLink="/">
+  <i class="material-icons">home</i>
+</button>
+
+<div
+    *ngIf="servicioAION.cargando"
+    style="background:
+      radial-gradient(
+        rgb(0,0,0,0.7),
+        transparent,
+        transparent,
+        transparent),
+      url(assets/img/icons/common/IconAnimFndTrnsp_1080x1080.webp);
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;"
+    class="indicador-carga">
+  <p>Cargando...</p>
+</div>

@@ -16,7 +16,7 @@ import { SelectorService } from '../../services/selector.service';
 
 export class UniversityDetailsComponent implements OnInit {
 
-  universidad: Universidad | any;
+  universidad: Universidad = <Universidad>{};
 
   @Input() uId: string = '';
 

@@ -1,0 +1,71 @@
+@import '../../../../styles.scss';
+
+h2 {
+  font-weight: 500;
+  margin: 0;
+  padding: 10px;
+  font-size: 19pt;
+  text-align: center;
+}
+
+.vanished-flag {
+  background: linear-gradient(rgb(38, 38, 110),rgb(38, 38, 60,0.95),transparent);
+  width: 115.5%;
+  margin: auto -10%;
+  padding: 15px 10% 10px;
+  color: white;
+  mat-stepper {
+    background: transparent;
+  }
+}
+
+.header-descriptor {
+  margin-top: 30px;
+  padding: 0 20px;
+  h2 {
+    font-family: sans-serif;
+    font-weight: 600;
+    font-size: xx-large;
+    letter-spacing: 5pt;
+    word-spacing: 20pt;
+    text-align: left;
+    padding-bottom: 20px;
+  }
+  p {
+    text-align: justify;
+    padding: 0 40px;
+    letter-spacing: 0.7pt;
+    font-weight: lighter;
+  }
+}
+
+div.mat-horizontal-stepper-header-container {
+  width: 50%;
+  margin: 0 25%;
+  .mat-step-icon {
+    display: none;
+  }
+  .mat-step-text-label {
+    background: mat-color($AION-accent);
+    text-align: center;
+    border-radius: 10px;
+    padding: 0 10px;
+  }
+  .mat-stepper-horizontal-line {
+    border-top-color: rgb(255,255,255,0.4);
+  }
+}
+
+div.mat-horizontal-content-container {
+  width: 80%;
+  margin: -35px 10% 15px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 10px;
+  border-image: linear-gradient(white,transparent) 0 100%;
+  padding: 35px 19% 50px;
+  text-align: center;
+  letter-spacing: 1pt;
+  font-weight: lighter;
+  font-size: smaller;
+}

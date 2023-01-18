@@ -26,37 +26,6 @@ import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import * as jsPDF from "jspdf";
 import html2canvas from 'html2canvas';
 
-
-
-
-
-
-
-
-
-/*
-import { UniversidadApiService } from './universidad/universidad-api.service';
-import { FiltrosApiService } from './universidad/filtros-api.service';
-import { AdministracionHorariosApiService } from './administracion/administracion-horarios.service';
-
-import { UniversidadesComponent } from './universidad/universidades.component';
-import { UniversidadDetalleComponent } from './universidad/universidad-detalle.component';
-import { FiltrosComponent } from './universidad/filtros.component';
-import { MateriaArbolComponent } from './universidad/filtro-materias.component';
-import { HorarioCreadorComponent } from './universidad/schedule-build.component';
-import { HorarioComponent } from './universidad/schedule.component';
-import { HorarioVisorAIONComponent } from './universidad/schedule-view-AION.component';
-import { AdministracionHorariosComponent } from './administracion/administracion-horarios.component';
-*/
-
-
-
-
-
-
-
-
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RouterModule, Routes } from '@angular/router';
@@ -65,59 +34,12 @@ import { ComponentsModule } from './core/components/components.module';
 import { PagesModule } from './core/pages/pages.module';
 import { ServicesModule } from './shared/services/services.module';
 
-
-
-
-
-
-
-
-
-/*
-import { API_URL } from './env';
-
+import { ComponentsFeatureUniversidadesModule } from './features/feature-universidades/components/components.module';
 import { PagesFeatureUniversidadesModule } from './features/feature-universidades/pages/pages.module';
-*/
-
-
-
-
-
-
-
-
-
 
 @NgModule({
   declarations: [
     AppComponent,
-
-
-
-
-
-
-
-
-
-/*
-    AdministracionHorariosComponent,
-    UniversidadesComponent,
-    UniversidadDetalleComponent,
-    FiltrosComponent,
-    MateriaArbolComponent,
-    HorarioCreadorComponent,
-    HorarioComponent,
-    HorarioVisorAIONComponent,
-*/
-
-
-
-
-
-
-
-
   ],
   imports: [
     BrowserModule,
@@ -152,55 +74,13 @@ import { PagesFeatureUniversidadesModule } from './features/feature-universidade
     PagesModule,
     ServicesModule,
 
-
-
-
-
-
-
-
-
-
-/*
+    ComponentsFeatureUniversidadesModule,
     PagesFeatureUniversidadesModule,
-*/
-
-
-
-
-
-
-
-
-
-
 
     AppRoutingModule,
   ],
   providers: [
     ServicesModule,
-
-
-
-
-
-
-
-
-/*
-    AdministracionHorariosApiService,
-    UniversidadApiService,
-    FiltrosApiService,
-*/
-
-
-
-
-
-
-
-
-
   ],
   bootstrap: [AppComponent]
 })

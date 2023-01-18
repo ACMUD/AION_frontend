@@ -1,0 +1,36 @@
+<mat-accordion class="example-headers-align">
+  <mat-expansion-panel
+      *ngFor="let proyecto of proyectos; let i = index"
+      accent
+      [expanded]="indice === i"
+      (opened)="setIndice(i)"
+      hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{proyecto.nombre}}
+      </mat-panel-title>
+      <mat-panel-description class="text-white">
+        {{proyecto.rol}} {{proyecto.estado}}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <div class="inner-panel">
+      <p>{{proyecto.descripcion}}</p>
+      <div class="inner-panel">
+      <span> Desarrolladores:
+      </span>
+      <ul *ngFor="let desarrollador of proyecto.desarrolladores">
+        {{desarrollador}}
+      </ul>
+      </div>
+    </div>
+    <mat-action-row *ngIf="proyecto.enlace">
+      <a
+        mat-raised-button
+        href="{{proyecto.enlace}}"
+        target="_blank">
+        Visitar
+      </a>
+    </mat-action-row>
+  </mat-expansion-panel>
+
+</mat-accordion>

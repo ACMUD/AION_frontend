@@ -1,0 +1,43 @@
+<div class="header">
+  <h2>Visor de horarios generados</h2>
+  <h3>
+    El sistema AION ha generado una serie de {{cantHorarios}} posibles horarios.
+  </h3>
+</div>
+
+<div class="control-panel">
+  <mat-form-field appearance="fill">
+    <mat-label>Seleccione una de las opciones generadas</mat-label>
+    <mat-select
+        [(ngModel)]="indice"
+        matTooltip="*Cada opcion tiene {{cantMaterias}} de las materias solicitadas"
+        name="opcionSelect">
+      <mat-option *ngFor="let opcion of horarios; let i = index" [value]="i">
+        Opcion {{i + 1}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div class="button-panel">
+    <button
+        mat-flat-button
+        matTooltip="*Debes habilitar las ventanas emergentes para poder descargar"
+        color="accent"
+        (click)="exportarPDF('scheduleAION');">
+      Descargar como PDF
+    </button>
+  </div>
+</div>
+
+<div class="schedule-view">
+  <aion-schedule id="scheduleAION" [eventosDia]="horarioSelecto()">
+  </aion-schedule>
+</div>
+
+<button
+    mat-fab
+    color="primary"
+    class="flotante"
+    routerLink="/">
+  <i class="material-icons">home</i>
+</button>

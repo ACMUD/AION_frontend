@@ -1,17 +1,28 @@
 @import '../../../../styles.scss';
 
-.bottom{
+.bottom {
   background: mat-color($AION-primary);
   font: 100 17px sans-serif, Roboto, consolas;
   color: white;
-  a{
+  a {
     text-decoration-line: none;
     color: mat-color($AION-accent);
     font-weight: 300;
   }
 }
 
-.copyright{
+.center-row {
   text-align: -webkit-center;
-  padding: 3px 0 5px;
+  padding: 3px 0;
+}
+
+.social-links {
+  a {
+    padding: 0 30px;
+  }
+
+  i {
+    font-family: 'FontAwesome';
+    font-style: normal;
+  }
 }

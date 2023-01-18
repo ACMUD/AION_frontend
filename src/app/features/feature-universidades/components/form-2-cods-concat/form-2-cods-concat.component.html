@@ -1,0 +1,36 @@
+<div>
+  <mat-card>
+    <mat-card-title>
+      Filtro con formulario de codigos
+    </mat-card-title>
+    <mat-card-subtitle>
+      Ingrese una materia por su codigo o grupo
+    </mat-card-subtitle>
+    <div>
+      <mat-form-field>
+        <mat-label>Codigo de materia</mat-label>
+        <input
+            matInput
+            [(ngModel)]="codigoMat"
+            type="number"
+            placeholder="Ej: 1, 19, 9909;"
+            required/>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Grupo</mat-label>
+        <input
+            matInput
+            [(ngModel)]="grupoId"
+            placeholder="Ej: 001-110, 020-81, 181-102;"/>
+      </mat-form-field>
+    </div>
+    <mat-card-actions align="end">
+      <button
+          mat-flat-button
+          (click)="filtrar()"
+          color="primary">
+        Agregar
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

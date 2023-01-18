@@ -1,0 +1,52 @@
+@import '../../../../styles.scss';
+
+.text-white {
+  color: white;
+}
+
+mat-expansion-panel-header {
+  background-color: mat-color($AION-accent);
+}
+
+mat-expansion-panel-header.mat-expansion-panel-header:focus {
+  background-color: mat-color($AION-accent);
+}
+
+mat-panel-title {
+  flex-grow: 2;
+  font-weight: 600;
+  font-family: sans-serif;
+  letter-spacing: 2pt;
+}
+
+mat-panel-description {
+  flex-grow: 1;
+  @extend .text-white;
+  font-weight: 300;
+  font-size: small;
+}
+
+.inner-panel {
+  p{
+    padding: 7px 0;
+    text-align: justify;
+  }
+  span{
+    font-weight: 700;
+    letter-spacing: 1.5pt;
+    white-space: break-spaces;
+    font-family: system-ui;
+  }
+  ul{
+    display: list-item;
+    list-style: hebrew;
+    padding-left: 1rem;
+    margin-left: 2rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+a.mat-raised-button {
+  background-color: mat-color($AION-accent);
+  @extend .text-white;
+}

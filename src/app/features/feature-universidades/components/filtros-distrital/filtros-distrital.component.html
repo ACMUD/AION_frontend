@@ -1,0 +1,16 @@
+<mat-card>
+  <mat-card-title>
+    Zona de filtros
+  </mat-card-title>
+  <mat-card-subtitle>
+    Utilice diferentes filtros para agregar materias
+  </mat-card-subtitle>
+
+  <mat-divider inset></mat-divider>
+
+  <form-2-cods-concat
+      (emitirFiltro)="agregarMateriasDesdeDictCodId($event)">
+  </form-2-cods-concat>
+
+  <mat-divider inset></mat-divider>
+</mat-card>

@@ -5,7 +5,7 @@ import { catchError } from 'rxjs/operators';
 
 import { environment } from '../../../../environments/environment';
 
-import { Colaborador } from '../../models/colaborador.model';
+import { Colaborador, Proyecto } from '../../models/colaborador.model';
 
 @Component({
   selector: 'aion-about',
@@ -15,6 +15,9 @@ import { Colaborador } from '../../models/colaborador.model';
 
 export class PageAboutComponent implements OnInit {
   colaboradores: Colaborador[] = [];
+  proyectos: Proyecto[] = [];
+  descriptores: {'nombre': string, 'rol': string, 'descripcion': string}[] = [];
+  trazabilidad = {'nombre': 'Sistema AION', 'descripcion': ''};
 
   constructor(private http: HttpClient){ }
 
@@ -40,8 +43,17 @@ export class PageAboutComponent implements OnInit {
               if(col.rol == 'Colaborador'){
                 this.colaboradores.push(col);
               }
+              if(col.rol == 'Proyecto'){
+                this.proyectos.push(col);
+              }
             }
           }
+          if('descriptores' in res){
+            for (let dsc of (res as any).descriptores) {
+              this.descriptores.push(dsc);
+            }
+          }
+          this.trazabilidad.descripcion = (res as any).descripcion;
         }
       }
     );
