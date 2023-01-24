@@ -9,4 +9,4 @@ import { AppHandlerService } from './app-handler.service';
   imports: [],
   exports: []
 })
-export class ServicesModule { }
+export class ServicesSharedModule { }

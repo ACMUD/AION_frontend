@@ -47,18 +47,5 @@
   <i class="material-icons">home</i>
 </button>
 
-<div
-    *ngIf="servicioAION.cargando"
-    style="background:
-      radial-gradient(
-        rgb(0,0,0,0.7),
-        transparent,
-        transparent,
-        transparent),
-      url(assets/img/icons/common/IconAnimFndTrnsp_1080x1080.webp);
-      background-size: contain;
-      background-position: center;
-      background-repeat: no-repeat;"
-    class="indicador-carga">
-  <p>Cargando...</p>
-</div>
+<aion-loading>
+</aion-loading>

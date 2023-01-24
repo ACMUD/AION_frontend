@@ -21,12 +21,21 @@
       </div>
       <mat-card-actions>
         <button
+            *ngIf="canAccion('ORGANIZAR')"
             mat-raised-button
             color="accent"
             [routerLink]="['/clasSetIn/', universidad.diminutivo]">
           Seleccionar
         </button>
         <button
+            *ngIf="canAccion('ACTUALIZAR')"
+            mat-raised-button
+            color="accent"
+            [routerLink]="['/Update/', universidad.diminutivo]">
+          Actualizar
+        </button>
+        <button
+            *ngIf="canAccion('REPORTAR')"
             mat-stroked-button
             style="background-color:rgb(255,255,255);"
             class="smaller"

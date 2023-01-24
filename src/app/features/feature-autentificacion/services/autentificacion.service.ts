@@ -21,8 +21,6 @@ import {
 @Injectable()
 export class AutentificacionService {
 
-  private token: string = '';
-
   constructor (private http: HttpClient) { }
 
   errorHandler (err: HttpErrorResponse){
@@ -44,15 +42,27 @@ export class AutentificacionService {
   }
 
   setToken (token_valido: string) {
-    this.token = token_valido;
+    localStorage.setItem('simbolismo', token_valido);
+    window.location.reload();
+  }
+
+  getToken (): string {
+    return localStorage.getItem('simbolismo') || "";
   }
 
   delToken ( ) {
-    this.token = '';
+    this.setToken('');
+    localStorage.removeItem('simbolismo');
+  }
+
+  getHeader ( ): HttpHeaders {
+    return new HttpHeaders({
+      'Authorization': 'Bearer ' + this.getToken()
+    });
   }
 
   estaEnSesion ( ): boolean {
-    return (this.token) ? true : false;
+    return (this.getToken()) ? true : false;
   }
 
   getValidacionAutentificacion (dict: any): Observable<any> {
@@ -62,9 +72,7 @@ export class AutentificacionService {
   }
 
   setInvalidarSesion ( ): Observable<any> {
-    let headers = new HttpHeaders({
-      'Authorization': 'Bearer' + this.token
-    });
+    let headers = this.getHeader();
     return this.http
       .post<string>(`${environment.baseUrl}/signout`, {'headers': headers})
       .pipe(catchError(this.errorHandler));

@@ -8,9 +8,22 @@
 
   <mat-divider inset></mat-divider>
 
+  <form-step-concat
+      (emitirFiltroFacultad)="agregarMateriasSoloConFacultad($event)"
+      (emitirFiltroProyecto)="agregarMateriasSoloConProyecto($event)"
+      (emitirFiltroMateria)="agregarMateriasDesdeDictCodId($event)"
+      (emitirFiltroMateriaFacultad)="agregarMateriasConFacultad($event)"
+      (emitirFiltroMateriaProyecto)="agregarMateriasConProyecto($event)">
+  </form-step-concat>
+
+  <mat-divider inset></mat-divider>
+
   <form-2-cods-concat
       (emitirFiltro)="agregarMateriasDesdeDictCodId($event)">
   </form-2-cods-concat>
 
   <mat-divider inset></mat-divider>
 </mat-card>
+
+<aion-loading>
+</aion-loading>

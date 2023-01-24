@@ -29,4 +29,28 @@ export class FiltrosDistritalService {
       .pipe(catchError(this.errorHandler));
   }
 
+  getFacultades (): Observable<any> {
+    return this.http
+      .get<any>(`${environment.baseUrl}/universidad/ud/facultades`)
+      .pipe(catchError(this.errorHandler));
+  }
+
+  getProyectos (): Observable<any> {
+    return this.http
+      .get<any>(`${environment.baseUrl}/universidad/ud/proyectos`)
+      .pipe(catchError(this.errorHandler));
+  }
+
+  getHorariosFacultades (): Observable<any> {
+    return this.http
+      .get<any>(`${environment.baseUrl}/universidad/ud/facultades/horarios`)
+      .pipe(catchError(this.errorHandler));
+  }
+
+  getHorariosProyectos (): Observable<any> {
+    return this.http
+      .get<any>(`${environment.baseUrl}/universidad/ud/proyectos/horarios`)
+      .pipe(catchError(this.errorHandler));
+  }
+
 }

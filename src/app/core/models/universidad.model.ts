@@ -5,5 +5,6 @@ export class Universidad {
     public id?: number,
     public diminutivo?: string,
     public periodo_actual?: string,
+    public acciones_permitidas: string[] = [],
   ){ }
 }

@@ -3,6 +3,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { MateriaDistrital, GrupoDistrital } from '../../models/materias-distrital.model';
 import { Horario } from '../../models/horario.model';
 import { FiltrosDistritalService } from '../../services/filtros-distrital.service';
+import { AppHandlerService } from '../../../../shared/services/app-handler.service';
 
 @Component({
   selector: 'aion-filtros-distrital',
@@ -20,12 +21,22 @@ export class FiltrosDistritalComponent {
       new EventEmitter<{ [codigo: number]: MateriaDistrital}>();
   @Output() errorHandler =
       new EventEmitter<string>();
-  constructor (private servicioFiltros: FiltrosDistritalService) { }
+  constructor (
+    private servicioFiltros: FiltrosDistritalService,
+    private appHandlerService: AppHandlerService,
+  ) { }
 
-  agregarMateriasDesdeDictCodId(dict: any){
+  private _errorHandler (mensaje: string) {
+    alert(mensaje);
+    console.log(mensaje);
+    this.errorHandler.emit(mensaje);
+  }
+
+  async agregarMateriasDesdeDictCodId (dict: any) {
     try {
+      this.appHandlerService.loading_bool = true;
       if (dict.grupo) {
-        this.servicioFiltros
+        await this.servicioFiltros
             .getHorariosGrupo(dict.materia, dict.grupo)
             .subscribe(
               data => {
@@ -61,12 +72,14 @@ export class FiltrosDistritalComponent {
                   }
                   this.materias[dict.materia].grupos[dict.grupo] = grupo;
                   this.emitirMaterias.emit(this.materias);
+                  this.appHandlerService.loading_bool = false;
               },error => {
-                  const mensaje =
+                this.appHandlerService.loading_bool = false;
+                const mensaje =
                     'El sistema presentó un error al enviar los datos al ' +
                     'servidor, verifique que el codigo de la materia (o el ' +
                     'identificador de grupo) sea(n) correcto(s).';
-                  this._errorHandler(mensaje);
+                this._errorHandler(mensaje);
               }
             );
 
@@ -104,28 +117,175 @@ export class FiltrosDistritalComponent {
                           data.nombre,
                           grupos);
                   this.emitirMaterias.emit(this.materias);
+                  this.appHandlerService.loading_bool = false;
               },error => {
-                  const mensaje =
+                this.appHandlerService.loading_bool = false;
+                const mensaje =
                     'El sistema presentó un error al enviar los datos al ' +
                     'servidor, verifique que el codigo de la materia (o el ' +
                     'identificador de grupo) sea(n) correcto(s).';
-                  this._errorHandler(mensaje);
+                this._errorHandler(mensaje);
               }
             );
       }
     } catch ( error ) {
-        const mensaje =
+      this.appHandlerService.loading_bool = false;
+      const mensaje =
           'El sistema presentó un error al enviar los datos al ' +
           'servidor, verifique que el codigo de la materia (o el ' +
           'identificador de grupo) sea(n) correcto(s).';
-        this._errorHandler(mensaje);
+      this._errorHandler(mensaje);
     }
   }
 
-  private _errorHandler (mensaje: string) {
-    alert(mensaje);
-    console.log(mensaje);
-    this.errorHandler.emit(mensaje);
+  async agregarMateriasSoloConFacultad (facultadString: string) {
+    try {
+      this.appHandlerService.loading_bool = true;
+      await this.servicioFiltros
+        .getHorariosFacultades()
+        .subscribe(
+          data => {
+            for (let facultadDict of data) {
+              if (facultadDict.nombre == facultadString) {
+                for (let grupoList of facultadDict.par_grupos) {
+                  const grupoDict = {
+                    'materia': grupoList[0],
+                    'grupo': grupoList[1]};
+                  this.agregarMateriasDesdeDictCodId(grupoDict);
+                }
+              }
+            }
+            this.appHandlerService.loading_bool = false;
+          }, error => {
+            this.appHandlerService.loading_bool = false;
+            const mensaje =
+              'El sistema presentó un error el filtro al ' +
+              'servidor, verifique que no haya contradicciones ' +
+              'en los parametros.';
+            this._errorHandler(mensaje);
+          });
+    } catch ( error ) {
+      this.appHandlerService.loading_bool = false;
+      const mensaje =
+          'El sistema presentó un error el filtro al ' +
+          'servidor, verifique que no haya contradicciones ' +
+          'en los parametros.';
+      this._errorHandler(mensaje);
+    }
+  }
+
+  async agregarMateriasSoloConProyecto (proyectoString: string) {
+    try {
+      this.appHandlerService.loading_bool = true;
+      await this.servicioFiltros
+        .getHorariosProyectos()
+        .subscribe(
+          data => {
+            for (let proyectosDict of data) {
+              if (proyectosDict.nombre == proyectoString) {
+                for (let grupoList of proyectosDict.par_grupos) {
+                  const grupoDict = {
+                    'materia': grupoList[0],
+                    'grupo': grupoList[1]};
+                  this.agregarMateriasDesdeDictCodId(grupoDict);
+                }
+              }
+            }
+            this.appHandlerService.loading_bool = false;
+          }, error => {
+            this.appHandlerService.loading_bool = false;
+            const mensaje =
+              'El sistema presentó un error el filtro al ' +
+              'servidor, verifique que no haya contradicciones ' +
+              'en los parametros.';
+            this._errorHandler(mensaje);
+          });
+    } catch ( error ) {
+      this.appHandlerService.loading_bool = false;
+      const mensaje =
+          'El sistema presentó un error el filtro al ' +
+          'servidor, verifique que no haya contradicciones ' +
+          'en los parametros.';
+      this._errorHandler(mensaje);
+    }
+  }
+
+  async agregarMateriasConFacultad (dict: any) {
+    try {
+      this.appHandlerService.loading_bool = true;
+      await this.servicioFiltros
+        .getHorariosFacultades()
+        .subscribe(
+          data => {
+            for (let facultadDict of data) {
+              if (facultadDict.nombre == dict.facultad) {
+                for (let grupoList of facultadDict.par_grupos) {
+                  if (grupoList[0] == dict.materia) {
+                    const grupoDict = {
+                      'materia': grupoList[0],
+                      'grupo': grupoList[1],
+                      'facultad': dict.facultad}; //dummy, para futuras modificaciones
+                    this.agregarMateriasDesdeDictCodId(grupoDict);
+                  }
+                }
+              }
+            }
+            this.appHandlerService.loading_bool = false;
+          }, error => {
+            this.appHandlerService.loading_bool = false;
+            const mensaje =
+              'El sistema presentó un error el filtro al ' +
+              'servidor, verifique que no haya contradicciones ' +
+              'en los parametros.';
+            this._errorHandler(mensaje);
+          });
+    } catch ( error ) {
+      this.appHandlerService.loading_bool = false;
+      const mensaje =
+          'El sistema presentó un error el filtro al ' +
+          'servidor, verifique que no haya contradicciones ' +
+          'en los parametros.';
+      this._errorHandler(mensaje);
+    }
+  }
+
+  async agregarMateriasConProyecto (dict: any) {
+    try {
+      this.appHandlerService.loading_bool = true;
+      await this.servicioFiltros
+        .getHorariosProyectos()
+        .subscribe(
+          data => {
+            for (let proyectoDict of data) {
+              if (proyectoDict.nombre == dict.proyecto) {
+                for (let grupoList of proyectoDict.par_grupos) {
+                  if (grupoList[0] == dict.materia) {
+                    const grupoDict = {
+                      'materia': grupoList[0],
+                      'grupo': grupoList[1],
+                      'proyecto': dict.proyecto}; //dummy, para futuras modificaciones
+                    this.agregarMateriasDesdeDictCodId(grupoDict);
+                  }
+                }
+              }
+            }
+            this.appHandlerService.loading_bool = false;
+          }, error => {
+            this.appHandlerService.loading_bool = false;
+            const mensaje =
+              'El sistema presentó un error el filtro al ' +
+              'servidor, verifique que no haya contradicciones ' +
+              'en los parametros.';
+            this._errorHandler(mensaje);
+          });
+    } catch ( error ) {
+      this.appHandlerService.loading_bool = false;
+      const mensaje =
+          'El sistema presentó un error el filtro al ' +
+          'servidor, verifique que no haya contradicciones ' +
+          'en los parametros.';
+      this._errorHandler(mensaje);
+    }
   }
 
 }

@@ -1,0 +1,38 @@
+mat-form-field {
+  width: 100%;
+}
+
+mat-card-actions {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex-direction: column;
+  grid-gap: 5px;
+}
+
+.filtro-chips-container {
+  display: flex;
+  width: 70%;
+  margin: auto 5%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  span {
+    font-family: inherit;
+    font-weight: 500;
+    font-size: initial;
+    letter-spacing: 2pt;
+    margin-bottom: 5px;
+  }
+
+  mat-chip {
+    width: fit-content;
+    padding: 7px 12px 7px 0;
+    margin: 5px 5%;
+    overflow: hidden;
+    white-space: nowrap;
+    flex-basis: unset;
+  }
+}

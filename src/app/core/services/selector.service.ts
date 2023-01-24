@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { take, catchError } from 'rxjs/operators';
 
@@ -31,9 +31,15 @@ export class SelectorService {
       .pipe(catchError(this.errorHandler));
   }
 
-  getUniversidad( uId: string ): Observable<Universidad>{
+  getUniversidad(
+    uId: string,
+    headers: HttpHeaders
+  ): Observable<Universidad>{
     return this.http
-      .get<Universidad>(`${ environment.baseUrl }/universidad/${ uId }/preview`)
+      .get<Universidad>(
+        `${ environment.baseUrl }/universidad/${ uId }/preview`,
+        {'headers': headers}
+      )
       .pipe(catchError(this.errorHandler));
     }
 

@@ -32,10 +32,12 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { ComponentsModule } from './core/components/components.module';
 import { PagesModule } from './core/pages/pages.module';
-import { ServicesModule } from './shared/services/services.module';
+import { ComponentsSharedModule } from './shared/components/components.module';
+import { ServicesSharedModule } from './shared/services/services.module';
 
 import { ComponentsFeatureUniversidadesModule } from './features/feature-universidades/components/components.module';
 import { PagesFeatureUniversidadesModule } from './features/feature-universidades/pages/pages.module';
+import { PagesFeatureAutentificacionModule } from './features/feature-autentificacion/pages/pages.module';
 
 import { ComponentsFeatureAutentificacionModule } from './features/feature-autentificacion/components/components.module';
 import { ServicesFeatureAutentificacionModule } from './features/feature-autentificacion/services/services.module';
@@ -75,7 +77,8 @@ import { ServicesFeatureAutentificacionModule } from './features/feature-autenti
 
     ComponentsModule,
     PagesModule,
-    ServicesModule,
+    ComponentsSharedModule,
+    ServicesSharedModule,
 
     ComponentsFeatureAutentificacionModule,
     ServicesFeatureAutentificacionModule,
@@ -83,10 +86,12 @@ import { ServicesFeatureAutentificacionModule } from './features/feature-autenti
     ComponentsFeatureUniversidadesModule,
     PagesFeatureUniversidadesModule,
 
+    PagesFeatureAutentificacionModule,
+
     AppRoutingModule,
   ],
   providers: [
-    ServicesModule,
+    ServicesSharedModule,
     ServicesFeatureAutentificacionModule,
   ],
   bootstrap: [AppComponent]

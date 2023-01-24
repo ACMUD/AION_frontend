@@ -10,6 +10,10 @@ import {
   AIONDistritalService
 } from '../../services/aion-distrital.service';
 
+import {
+  AppHandlerService
+} from '../../../../shared/services/app-handler.service';
+
 @Component({
   selector: 'aion-kairos-distrital',
   templateUrl: './page-kairos-distrital.component.html',
@@ -32,6 +36,7 @@ export class PageKairosDistritalComponent {
 
   constructor (
     public servicioAION: AIONDistritalService,
+    private appHandlerService: AppHandlerService,
     private router: Router,
     private route: ActivatedRoute
   ) { }
@@ -145,7 +150,7 @@ export class PageKairosDistritalComponent {
   }
 
   usarAION ( ) {
-    this.servicioAION.cargando = true;
+    this.appHandlerService.loading_bool = true;
     const lista = [];
     for (let materia in this.materias) {
       for (let grupo in this.materias[materia].grupos){
@@ -178,7 +183,7 @@ export class PageKairosDistritalComponent {
               'cantMaterias': cantMaterias}
             }
           );
-          this.servicioAION.cargando = false;
+          this.appHandlerService.loading_bool = false;
         }
       );
   }

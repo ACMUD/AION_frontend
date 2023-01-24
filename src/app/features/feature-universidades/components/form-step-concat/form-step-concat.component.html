@@ -1,0 +1,121 @@
+<div>
+  <mat-card>
+    <mat-card-title>
+      Filtro por pasos
+    </mat-card-title>
+    <mat-card-subtitle>
+      Ingrese los datos de su materia paso a paso
+      (Facultad, Proyecto y Materia)
+    </mat-card-subtitle>
+    <div>
+    </div>
+    <mat-stepper labelPosition="bottom" #stepper>
+      <mat-step label="Facultades" optional>
+        <form>
+          <mat-form-field appearance="fill">
+            <mat-label>Filtro de facultades</mat-label>
+            <input
+                matInput
+                type="text"
+                placeholder="Elija una facultad"
+                [formControl]="facultadesControl"
+                [matAutocomplete]="autocompletadoFacultades"/>
+            <mat-autocomplete
+                #autocompletadoFacultades="matAutocomplete">
+              <mat-option
+                  *ngFor="let facultad of facultadesFiltradas | async"
+                  [value]="facultad"
+                  (click)="selectFacultad();stepper.next()">
+                {{facultad}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+        </form>
+      </mat-step>
+      <mat-step label="Proyectos curriculares" optional>
+        <form>
+          <mat-form-field appearance="fill">
+            <mat-label>Filtro de proyectos curriculares</mat-label>
+            <input
+                matInput
+                type="text"
+                placeholder="Eliga un proyecto curricular"
+                [formControl]="proyectosControl"
+                [matAutocomplete]="autocompletadoProyectos">
+            <mat-autocomplete
+                #autocompletadoProyectos="matAutocomplete">
+              <mat-option
+                  *ngFor="let proyecto of proyectosFiltrados | async"
+                  [value]="proyecto"
+                  (click)="selectProyecto();stepper.next()">
+                {{proyecto}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+        </form>
+      </mat-step>
+      <mat-step label="Materia" optional>
+        <form>
+          <mat-form-field appearance="fill">
+            <mat-label>Filtro de materias</mat-label>
+            <input
+                matInput
+                type="text"
+                placeholder="Eliga una materia"
+                [formControl]="materiasControl"
+                [matAutocomplete]="autocompletadoMaterias">
+            <mat-autocomplete
+                #autocompletadoMaterias="matAutocomplete">
+              <mat-option
+                  *ngFor="let materia of materiasFiltradas | async"
+                  [value]="materia"
+                  (click)="selectMateria()">
+                {{materia}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+        </form>
+      </mat-step>
+    </mat-stepper>
+    <mat-card-actions align="end"
+        *ngIf="facultadSelecta || proyectoSelecto || materiaSelecta">
+      <div class="filtro-chips-container">
+        <span>
+          Filtro actual:
+        </span>
+        <mat-chip-list>
+          <mat-chip
+              *ngIf="facultadSelecta"
+              (removed)="facultadesControl.reset();selectFacultad()">
+            <button matChipRemove>
+              <mat-icon>cancel</mat-icon>
+            </button>
+            {{facultadSelecta}}
+          </mat-chip>
+          <mat-chip
+              *ngIf="proyectoSelecto"
+              (removed)="proyectosControl.reset();selectProyecto()">
+            <button matChipRemove>
+              <mat-icon>cancel</mat-icon>
+            </button>
+            {{proyectoSelecto}}
+          </mat-chip>
+          <mat-chip
+              *ngIf="materiaSelecta"
+              (removed)="materiasControl.reset();selectMateria()">
+            <button matChipRemove>
+              <mat-icon>cancel</mat-icon>
+            </button>
+            {{materiaSelecta}}
+          </mat-chip>
+        </mat-chip-list>
+      </div>
+      <button
+          mat-flat-button
+          (click)="filtrar();stepper.reset()"
+          color="primary">
+        Aplicar filtro
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

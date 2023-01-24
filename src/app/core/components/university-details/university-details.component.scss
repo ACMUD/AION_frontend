@@ -10,10 +10,14 @@ mat-card-content{
 }
 
 mat-card-actions{
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  button.mat-raised-button {
+    margin: 5px 0;
+  }
 }
 
 button.smaller{
-  margin: 5% 5% 0%;
+  margin: 5px 5%;
 }

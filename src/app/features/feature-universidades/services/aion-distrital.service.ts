@@ -8,8 +8,6 @@ import { environment } from '../../../../environments/environment';
 @Injectable()
 export class AIONDistritalService {
 
-  cargando: boolean = false;
-
   constructor (private http: HttpClient) { }
 
   errorHandler (err: HttpErrorResponse){

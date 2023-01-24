@@ -31,33 +31,6 @@ button.flotante-alterno {
   }
 }
 
-.indicador-carga {
-  display: flex;
-  position: fixed;
-  bottom: 10%;
-  top: 10%;
-  left: 15%;
-  right: 15%;
-  z-index: 19;
-  width: 70%;
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  opacity: 0.85;
-  font-size: -webkit-xxx-large;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  p {
-    font-family: system-ui;
-    font-size: -webkit-xxx-large;
-    font-weight: 600;
-    letter-spacing: 16pt;
-    text-shadow: 2px 0 black, -2px 0 black, 0 2px black, 0 -2px black, 1px 1px black, -1px -1px black, 1px -1px black, -1px 1px black;
-  }
-}
-
 .advertencia {
   width: -webkit-fill-available;
   display: flex;

@@ -8,7 +8,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
-import {MatTabsModule} from '@angular/material/tabs';
+import { MatTabsModule } from '@angular/material/tabs';
 
 import { PanelUsuarioAnonimoComponent } from './panel-usuario-anonimo/panel-usuario-anonimo.component';
 import { PanelInicioSesionComponent } from './panel-inicio-sesion/panel-inicio-sesion.component';

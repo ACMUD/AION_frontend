@@ -1,0 +1,26 @@
+<h2>Actualizar horario de la universidad {{this.uId}}</h2>
+<div class="block-container">
+  <button
+      mat-raised-button
+      matTooltip="Recuerde que el archivo puede no ser valido para la universidad seleccionada debido a su extension"
+      color="accent"
+      (click)="inputArchivo.click()">
+    Cargar Archivo
+  </button>
+  <input
+      #inputArchivo
+      hidden
+      type="file"
+      (change)="cargarArchivo($event)"/>
+  <button
+      mat-raised-button
+      matTooltip="Recuerde que necesita permisos de administrador para que el servidor acepte la solicitud de actualizacion"
+      [disabled]="archivo.size == 0"
+      color="accent"
+      (click)="confirmarEnvio()">
+    Confirmar Actualizacion
+  </button>
+</div>
+
+<aion-loading>
+</aion-loading>
