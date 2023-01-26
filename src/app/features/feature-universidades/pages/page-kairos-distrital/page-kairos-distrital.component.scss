@@ -19,15 +19,11 @@
 button.flotante-alterno {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  position: fixed;
-  bottom: 20px;
-  right: 100px;
+  justify-content: center;
   font-size: large;
-  padding: 8px;
-  z-index: 2;
+  padding: 5px 10px;
   * {
-    max-height: 34px;
+    max-height: 45px;
   }
 }
 

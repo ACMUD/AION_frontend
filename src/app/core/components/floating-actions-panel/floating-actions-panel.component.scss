@@ -1,0 +1,14 @@
+div.floating-container {
+  position: fixed;
+  bottom: 19px;
+  right: 19px;
+  padding: 5px;
+  z-index: 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 5px;
+  * {
+    max-height: 55px;
+  }
+}

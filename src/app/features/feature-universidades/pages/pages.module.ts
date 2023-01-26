@@ -7,6 +7,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
+import { ComponentsModule } from '../../../core/components/components.module';
 import { ComponentsFeatureUniversidadesModule } from '../components/components.module';
 import { ComponentsSharedModule } from '../../../shared/components/components.module';
 
@@ -24,6 +25,7 @@ import { PageViewAIONComponent } from './page-view-aion/page-view-aion.component
     FormsModule,
     ReactiveFormsModule,
 
+    ComponentsModule,
     ComponentsFeatureUniversidadesModule,
     ComponentsSharedModule,
 

@@ -146,7 +146,7 @@ export class PageKairosDistritalComponent {
 
   estaAIONHabilitado ( ): boolean {
     const cantMat = Object.keys(this.materias).length;
-    return cantMat > 0 && cantMat < 9;
+    return cantMat > 0 && cantMat <= 10;
   }
 
   usarAION ( ) {

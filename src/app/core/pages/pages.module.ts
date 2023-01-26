@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { MatButtonModule } from '@angular/material/button';
+
 import { PagesRoutingModule } from './pages-routing.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { PageChooseUComponent } from './page-choose-u/page-choose-u.component';
@@ -19,6 +21,8 @@ import { ComponentsModule } from '../components/components.module'
   imports: [
     CommonModule,
     ComponentsModule,
+
+    MatButtonModule,
 
     PagesRoutingModule,
   ],

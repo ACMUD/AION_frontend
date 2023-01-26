@@ -18,6 +18,7 @@ import { UniversityDetailsComponent } from './university-details/university-deta
 import { AboutPartnerComponent } from './about-partner/about-partner.component';
 import { AboutProjectsComponent } from './about-projects/about-projects.component';
 import { AboutHeaderComponent } from './about-header/about-header.component';
+import { FloatingActionsPanelComponent } from './floating-actions-panel/floating-actions-panel.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { AboutHeaderComponent } from './about-header/about-header.component';
     UniversityDetailsComponent,
     AboutPartnerComponent,
     AboutProjectsComponent,
-    AboutHeaderComponent
+    AboutHeaderComponent,
+    FloatingActionsPanelComponent
   ],
   imports: [
     CommonModule,
@@ -49,7 +51,8 @@ import { AboutHeaderComponent } from './about-header/about-header.component';
     UniversityDetailsComponent,
     AboutPartnerComponent,
     AboutProjectsComponent,
-    AboutHeaderComponent
+    AboutHeaderComponent,
+    FloatingActionsPanelComponent
   ]
 })
 export class ComponentsModule { }

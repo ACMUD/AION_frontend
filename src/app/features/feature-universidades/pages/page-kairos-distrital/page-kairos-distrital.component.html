@@ -28,24 +28,25 @@
   </aion-schedule>
 </div>
 
-<button
-    mat-raised-button
-    matTooltip="Utiliza la inteligencia artificial de AION para que organice las materias filtradas"
-    color="accent"
-    class="flotante-alterno"
-    *ngIf="estaAIONHabilitado()"
-    (click)="usarAION()">
+<floating-actions-panel>
+  <button
+      mat-raised-button
+      matTooltip="Utiliza la inteligencia artificial de AION para que organice las materias filtradas"
+      color="accent"
+      class="flotante-alterno"
+      *ngIf="estaAIONHabilitado()"
+      (click)="usarAION()">
     <img src="/assets/img/icons/common/IconBlnqFndTrnspConLtrs.svg">
     Usar AION
-</button>
+  </button>
 
-<button
-    mat-fab
-    color="primary"
-    class="flotante"
-    routerLink="/">
-  <i class="material-icons">home</i>
-</button>
+  <button
+      mat-fab
+      color="primary"
+      routerLink="/">
+    <i class="material-icons">home</i>
+  </button>
+</floating-actions-panel>
 
 <aion-loading>
 </aion-loading>
