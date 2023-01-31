@@ -2,8 +2,14 @@
   <h2>Eliga un archivo de materias</h2>
 
   <university-details
-      [uId]="uId">
+      [universidad]="universidad">
   </university-details>
+
+  <saved-state-details
+      *ngIf="canAccion('PERSONAL')"
+      [state]="state_preview"
+      [uId]="uId">
+  </saved-state-details>
 </div>
 
 <floating-actions-panel>

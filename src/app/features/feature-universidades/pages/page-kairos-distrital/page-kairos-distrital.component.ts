@@ -31,6 +31,7 @@ export class PageKairosDistritalComponent {
   materias: { [codigo: number]: MateriaDistrital} = {};
 
   private espaciosMapeo: { [dia: string]: { [hora: string]: boolean } } = {};
+  private int_estadoCargado = 0;
   cruces: {'cantidad': number, 'ubicacion': { [dia: string]: boolean }} =
     {'cantidad': 0, 'ubicacion': {}};
 
@@ -39,7 +40,21 @@ export class PageKairosDistritalComponent {
     private appHandlerService: AppHandlerService,
     private router: Router,
     private route: ActivatedRoute
-  ) { }
+  ) {
+    const state_selectos: string[][] = window.history.state.selectos;
+    try{
+      for (let selecto of state_selectos) {
+        console.log(selecto);
+        const dict = {'materia': selecto[0], 'grupo': selecto[1]};
+        console.log(dict);
+        this.espaciosSelectos[dict.materia + '/' + dict.grupo] = true;
+        //this.seleccionarGrupo(dict);
+        //this.actualizarEspacioHorario();
+      }
+      this.actualizarEspacioHorario();
+    } catch ( error ) {
+    }
+  }
 
   calcularHora (horaStr: string): number {
     return (+horaStr.split('-')[0])-6;
@@ -50,6 +65,7 @@ export class PageKairosDistritalComponent {
   }
 
   agregarEspacioHorario (dict: {'materia': string, 'grupo': string}) {
+    let i = 0;
     for (let horario of this.materias[Number(dict.materia)].grupos[dict.grupo].horarios){
       const espacio =
         new EspacioHorarioGraficable(
@@ -77,12 +93,17 @@ export class PageKairosDistritalComponent {
         this.cruces.cantidad += 1;
         this.cruces.ubicacion[horario.dia] = true;
       }
+      i++;
+      if (i == Object.keys(this.materias[Number(dict.materia)].grupos[dict.grupo].horarios).length) {
+        this.int_estadoCargado += 1;
+      }
     }
   }
 
   actualizarEspacioHorario ( ) {
     this.eventosDia = {};
     this.espaciosMapeo = {};
+    this.int_estadoCargado = 0;
     this.cruces = {'cantidad': 0, 'ubicacion': {}};
     for (let materiaSelecta in this.espaciosSelectos) {
       const indice = materiaSelecta.indexOf('/');
@@ -137,7 +158,14 @@ export class PageKairosDistritalComponent {
   }
 
   haySelectos ( ): boolean {
+    this.forzarActualizacion();
     return Object.keys(this.espaciosSelectos).length > 0
+  }
+
+  forzarActualizacion ( ) {
+    if (Object.keys(this.espaciosSelectos).length != this.int_estadoCargado) {
+      this.actualizarEspacioHorario();
+    }
   }
 
   hayMaterias ( ): boolean {
@@ -183,6 +211,30 @@ export class PageKairosDistritalComponent {
               'cantMaterias': cantMaterias}
             }
           );
+          this.appHandlerService.loading_bool = false;
+        }
+      );
+  }
+
+  saveState ( ) {
+    this.appHandlerService.loading_bool = true;
+    const state:
+        {'filtros': string[][], 'selectos': string[][]} =
+        {'filtros': [], 'selectos': []};
+    for (let materia in this.materias) {
+      for (let grupo in this.materias[materia].grupos){
+        state.filtros.push([String(materia), grupo]);
+      }
+    }
+    for (let materia in this.espaciosSelectos) {
+      state.selectos.push(materia.split('/'));
+    }
+    this.servicioAION.setHorarioPersonal(state)
+      .subscribe( data =>
+        {
+          alert('¡Estado guardado!');
+          this.appHandlerService.loading_bool = false;
+        }, err => {
           this.appHandlerService.loading_bool = false;
         }
       );

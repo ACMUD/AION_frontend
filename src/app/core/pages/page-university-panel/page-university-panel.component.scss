@@ -1,16 +1,19 @@
 university-details {
   display: block;
-  min-height: 529px;
 }
 
 .section-wide {
   padding: 20px 2px 30px;
+  min-height: 579px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
 }
 
 h2 {
   font-weight: 500;
   margin: 0;
-  padding: 10px;
+  padding: 5px;
   font-size: 19pt;
   text-align: center;
 }

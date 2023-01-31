@@ -33,11 +33,20 @@
       mat-raised-button
       matTooltip="Utiliza la inteligencia artificial de AION para que organice las materias filtradas"
       color="accent"
-      class="flotante-alterno"
+      class="flotante-grande"
       *ngIf="estaAIONHabilitado()"
       (click)="usarAION()">
     <img src="/assets/img/icons/common/IconBlnqFndTrnspConLtrs.svg">
     Usar AION
+  </button>
+
+  <button
+      mat-fab
+      matTooltip="Guarda el estado actual de la sesion para usarlo eventualmente"
+      color="accent"
+      *ngIf="estaAIONHabilitado()"
+      (click)="saveState()">
+    <i class="material-icons">save</i>
   </button>
 
   <button

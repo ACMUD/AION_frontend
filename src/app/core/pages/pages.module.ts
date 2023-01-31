@@ -9,7 +9,8 @@ import { PageChooseUComponent } from './page-choose-u/page-choose-u.component';
 import { PageUniversityPanelComponent } from './page-university-panel/page-university-panel.component';
 import { PageAboutComponent } from './page-about/page-about.component';
 
-import { ComponentsModule } from '../components/components.module'
+import { ComponentsModule } from '../components/components.module';
+import { ComponentsFeatureAutentificacionModule } from '../../features/feature-autentificacion/components/components.module';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,8 @@ import { ComponentsModule } from '../components/components.module'
   imports: [
     CommonModule,
     ComponentsModule,
+
+    ComponentsFeatureAutentificacionModule,
 
     MatButtonModule,
 

@@ -1,0 +1,28 @@
+<div>
+  <mat-card>
+    <mat-card-content>
+      <div class="data-view">
+        <img
+            alt="Animacion logo AION"
+            src="/assets/img/icons/common/IconAnimFndTrnsp_1080x1080.webp"/>
+        <div class="data-content">
+          <mat-card-title>Estado de memoria para {{state.universidad}}</mat-card-title>
+          <mat-card-subtitle> Creado por {{state.usuario}} </mat-card-subtitle>
+          <span>Contiene:</span>
+          <ul>
+            <li>{{state.filtros}} espacios filtrados</li>
+            <li>{{state.selectos}} espacios selectos</li>
+          </ul>
+        </div>
+        <mat-card-actions>
+          <button
+              mat-raised-button
+              color="accent"
+              (click)="useState()">
+            Seleccionar
+          </button>
+        </mat-card-actions>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

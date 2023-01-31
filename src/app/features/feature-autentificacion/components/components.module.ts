@@ -13,12 +13,14 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { PanelUsuarioAnonimoComponent } from './panel-usuario-anonimo/panel-usuario-anonimo.component';
 import { PanelInicioSesionComponent } from './panel-inicio-sesion/panel-inicio-sesion.component';
 import { PanelUsuarioAutenticadoComponent } from './panel-usuario-autenticado/panel-usuario-autenticado.component';
+import { SavedStateDetailsComponent } from './saved-state-details/saved-state-details.component';
 
 @NgModule({
   declarations: [
     PanelUsuarioAnonimoComponent,
     PanelInicioSesionComponent,
-    PanelUsuarioAutenticadoComponent
+    PanelUsuarioAutenticadoComponent,
+    SavedStateDetailsComponent
   ],
   imports: [
     CommonModule,
@@ -37,7 +39,8 @@ import { PanelUsuarioAutenticadoComponent } from './panel-usuario-autenticado/pa
   exports: [
     PanelUsuarioAnonimoComponent,
     PanelInicioSesionComponent,
-    PanelUsuarioAutenticadoComponent
+    PanelUsuarioAutenticadoComponent,
+    SavedStateDetailsComponent
   ]
 })
 export class ComponentsFeatureAutentificacionModule { }

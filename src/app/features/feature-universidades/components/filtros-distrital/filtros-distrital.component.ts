@@ -24,7 +24,16 @@ export class FiltrosDistritalComponent {
   constructor (
     private servicioFiltros: FiltrosDistritalService,
     private appHandlerService: AppHandlerService,
-  ) { }
+  ) {
+    try{
+      const state_filtros: string[][] = window.history.state.filtros;
+      for (let filtro of state_filtros) {
+        const dict = {'materia': filtro[0],'grupo': filtro[1]};
+        this.agregarMateriasDesdeDictCodId(dict);
+      }
+    } catch ( error ) {
+    }
+  }
 
   private _errorHandler (mensaje: string) {
     alert(mensaje);

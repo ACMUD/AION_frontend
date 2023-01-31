@@ -1,0 +1,32 @@
+.data-view {
+  display: flex;
+  column-gap: 15px;
+  img {
+    max-width: 99px;
+    object-fit: scale-down;
+  }
+}
+
+.data-content {
+  width: -webkit-fill-available;
+  span {
+    font-size: larger;
+  }
+  ul {
+    list-style: oriya;
+    padding-left: 50px;
+  }
+  li {
+    letter-spacing: 2px;
+  }
+}
+
+.mat-card-actions {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  button {
+    width: 100%;
+  }
+}

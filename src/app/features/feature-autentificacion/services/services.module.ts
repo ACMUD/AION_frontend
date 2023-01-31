@@ -2,9 +2,10 @@ import { NgModule } from '@angular/core';
 
 import { AutentificacionService } from './autentificacion.service';
 
+
 @NgModule({
   providers: [
-    AutentificacionService
+    AutentificacionService,
   ],
   imports: [],
   exports: []
