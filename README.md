@@ -55,21 +55,21 @@ Inicialice un servidor local en la carpeta clonada ejecutando `ng serve`. Deje q
       <i>Organiza tus horarios</i>
     </td>
     <td>
-      <img align="center" width="500" src="/guides/AION_uso-PDF.png" alt="Archivo PDF exportado"/>
-      <br>
-      <i>Exporta tus horarios</i>
-    </td>
-  </tr>
-  <tr>
-    <td>
       <img align="center" width="500" src="/guides/AION_uso-MultiplesFiltros.png" alt="Zona de filtros"/>
       <br>
       <i>Utiliza diferentes filtros</i>
     </td>
+  </tr>
+  <tr>
     <td>
       <img align="center" width="500" src="/guides/AION_uso-HorarioAION.png" alt="Pantalla de organizador autonomo"/>
       <br>
       <i>Deja que AION haga el trabajo por ti</i>
+    </td>
+    <td>
+      <img align="center" width="500" src="/guides/AION_uso-PDF.png" alt="Archivo PDF exportado"/>
+      <br>
+      <i>Exporta tus horarios</i>
     </td>
   </tr>
   <tr>
@@ -84,11 +84,23 @@ Inicialice un servidor local en la carpeta clonada ejecutando `ng serve`. Deje q
       <i>...Y notificaciones por esperas</i>
     </td>
   </tr>
-    <tr>
+  <tr>
     <td>
       <img align="center" width="500" src="/guides/AION_uso-InicioSesion.png" alt="Componente de inicio de sesion"/>
       <br>
       <i>Inicia sesion para acceder a más servicios</i>
+    </td>
+    <td>
+      <img align="center" width="500" src="/guides/AION_uso-EstadoGuardado.png" alt="Zona de carga de estado"/>
+      <br>
+      <i>Guarda y carga los horarios que organizaste antes</i>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img align="center" width="500" src="/guides/AION_uso-SelectorUniversidades.png" alt="Zona de seleccion de universidad"/>
+      <br>
+      <i>Selecciona entre multiples universidades</i>
     </td>
     <td>
       <img align="center" width="500" src="/guides/AION_trazabilidad-Proyectos.png" alt="Informacion sobre demás proyectos"/>
