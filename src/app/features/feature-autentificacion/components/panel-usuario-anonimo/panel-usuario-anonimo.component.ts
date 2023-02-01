@@ -33,4 +33,20 @@ export class PanelUsuarioAnonimoComponent {
       );
   }
 
+  registroUsuario(dict: any) {
+    this.autentificacionService.getAgregarAutentificacion(dict)
+      .subscribe(
+        data => {
+          console.log(data);
+          alert('Usuario registrado e iniciado en sesion');
+          this.iniciarSesion(dict);
+        }, error => {
+          this.mensaje = 'El registro no se completo, revise los datos';
+          if (error.includes('412')) {
+            this.mensaje = 'Ya existe un usuario con ese correo o ese nombre de usuario';
+          }
+        }
+      );
+  }
+
 }

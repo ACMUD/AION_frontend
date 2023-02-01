@@ -12,6 +12,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 
 import { PanelUsuarioAnonimoComponent } from './panel-usuario-anonimo/panel-usuario-anonimo.component';
 import { PanelInicioSesionComponent } from './panel-inicio-sesion/panel-inicio-sesion.component';
+import { PanelRegistroUsuarioComponent } from './panel-registro-usuario/panel-registro-usuario.component';
 import { PanelUsuarioAutenticadoComponent } from './panel-usuario-autenticado/panel-usuario-autenticado.component';
 import { SavedStateDetailsComponent } from './saved-state-details/saved-state-details.component';
 
@@ -19,6 +20,7 @@ import { SavedStateDetailsComponent } from './saved-state-details/saved-state-de
   declarations: [
     PanelUsuarioAnonimoComponent,
     PanelInicioSesionComponent,
+    PanelRegistroUsuarioComponent,
     PanelUsuarioAutenticadoComponent,
     SavedStateDetailsComponent
   ],
@@ -39,6 +41,7 @@ import { SavedStateDetailsComponent } from './saved-state-details/saved-state-de
   exports: [
     PanelUsuarioAnonimoComponent,
     PanelInicioSesionComponent,
+    PanelRegistroUsuarioComponent,
     PanelUsuarioAutenticadoComponent,
     SavedStateDetailsComponent
   ]

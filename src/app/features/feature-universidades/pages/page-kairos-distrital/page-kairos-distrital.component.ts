@@ -48,8 +48,6 @@ export class PageKairosDistritalComponent {
         const dict = {'materia': selecto[0], 'grupo': selecto[1]};
         console.log(dict);
         this.espaciosSelectos[dict.materia + '/' + dict.grupo] = true;
-        //this.seleccionarGrupo(dict);
-        //this.actualizarEspacioHorario();
       }
       this.actualizarEspacioHorario();
     } catch ( error ) {

@@ -71,6 +71,12 @@ export class AutentificacionService {
       .pipe(catchError(this.errorHandler));
   }
 
+  getAgregarAutentificacion (dict: any): Observable<any> {
+    return this.http
+      .post<string>(`${environment.baseUrl}/signup`, dict)
+      .pipe(catchError(this.errorHandler));
+  }
+
   setInvalidarSesion ( ): Observable<any> {
     let headers = this.getHeader();
     return this.http
